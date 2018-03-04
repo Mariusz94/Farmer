@@ -1,0 +1,3 @@
+[COW-12-true,
+SHEEP-14-false,
+PIG-4-true]
