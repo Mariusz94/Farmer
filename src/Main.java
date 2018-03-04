@@ -1,30 +1,20 @@
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static jdk.nashorn.internal.objects.NativeArray.sort;
 
 public class Main {
     static int condition = 0;
 
     public static void main(String[] args) {
-        //while(condition == 0) {
-        //   Main main = new Main();
-        //    List<Barn> barnsList = main.barnAnimal();
-        //    main.Menu(barnsList);
-        // }
-
-        Random random = new Random();
-        int iD = random.nextInt(899)+100;
-        for (int i = 0; i < 100; i++) {
-            System.out.println(random.nextInt(899)+100);
+        while (condition == 0) {
+            Main main = new Main();
+            List<Barn> barnsList = main.barnAnimal();
+            main.Menu(barnsList);
         }
     }
 
-    //poszukiwanie plików
     public File[] checkingTheLocation() {
         String dirPathname = "D:\\Akademia kodu\\2.03.2018 Zajęcia\\Farmer\\Stodoły";
         File directory = new File(dirPathname);
@@ -32,7 +22,6 @@ public class Main {
         return files;
     }
 
-    //odczyt z plików i tworzenie zwierząt z stoodołą
     public Barn readFileString(File file) {
 
         String name[] = file
@@ -75,7 +64,6 @@ public class Main {
         return barn;
     }
 
-    //Lista stodół ze zwierzętami
     public List<Barn> barnAnimal() {
         Main main = new Main();
         File[] file = main.checkingTheLocation();
@@ -94,7 +82,6 @@ public class Main {
         return barnList;
     }
 
-    //suma wszystkich zwierząt
     public List<Animal> animalSumList(List<Barn> barnList) {
         List<Animal> animalSum = new LinkedList<>();
         for (int i = 0; i < barnList.size(); i++) {
@@ -108,7 +95,6 @@ public class Main {
         return animalSum;
     }
 
-    //Najpopularniejsze zwierzęw stajni
     public String mostPopularAnimalInBarn(List<Barn> barnsList) {
         Main main = new Main();
         List<Animal> listAnimal = main.animalSumList(barnsList);
@@ -128,7 +114,6 @@ public class Main {
         return listAnimal.get(positionMostPopularAnimalInBarnAtListAnimal).getName();
     }
 
-    //Menu
     public void Menu(List<Barn> barns) {
         Scanner scanner = new Scanner(System.in);
 
@@ -199,7 +184,6 @@ public class Main {
 
     }
 
-    //Najliczniejsza stodoła
     public int mostNumerousBarn(List<Barn> barnsList) {
         int biggestBarn = 0;
         int counter = 0;
