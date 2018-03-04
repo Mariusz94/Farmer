@@ -1,1 +1,1 @@
-[COW-12-true,SHEEP-14-true,SHEEP-14-true,PIG-4-true]
+COW-12-true,SHEEP-14-true,SHEEP-14-true,PIG-4-true

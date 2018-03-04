@@ -8,13 +8,20 @@ import java.util.stream.Collectors;
 import static jdk.nashorn.internal.objects.NativeArray.sort;
 
 public class Main {
+    static int condition = 0;
+
     public static void main(String[] args) {
-        Main main = new Main();
-        List<Barn> barnsList = main.barnAnimal();
-        main.Menu(barnsList);
+        //while(condition == 0) {
+        //   Main main = new Main();
+        //    List<Barn> barnsList = main.barnAnimal();
+        //    main.Menu(barnsList);
+        // }
 
-
-
+        Random random = new Random();
+        int iD = random.nextInt(899)+100;
+        for (int i = 0; i < 100; i++) {
+            System.out.println(random.nextInt(899)+100);
+        }
     }
 
     //poszukiwanie plików
@@ -55,7 +62,7 @@ public class Main {
         }
 
         String animalText = stringBuilder.toString();
-        animalText = animalText.substring(1, animalText.length() - 1);
+        animalText = animalText.substring(0, animalText.length() - 0);
 
         String[] animalsTable = animalText.split(",");
         List<Animal> animalList = new ArrayList<>();
@@ -130,6 +137,8 @@ public class Main {
 
         List<Barn> barnsList = main.barnAnimal();
 
+        OperationOnBarn operationOnBarn = new OperationOnBarn();
+
         System.out.println("1. Wyświetl 5 najmłodszych zwierząt");
         System.out.println("2. Wyświetl 5 najstarszych zwierząt");
         System.out.println("3. Stodoła z największą ilością zwierząt");
@@ -150,7 +159,9 @@ public class Main {
                 main.animalSumList(barnsList).stream().limit(5).forEach(System.out::println);
                 break;
             case 2:
-                System.out.println(listAnimal.subList(listAnimal.size() - 5, listAnimal.size()));
+                for (Animal animal : listAnimal.subList(listAnimal.size() - 5, listAnimal.size())) {
+                    System.out.println(animal);
+                }
                 break;
             case 3:
                 System.out.println(barnsList.get(mostNumerousBarn(barnsList)).getName());
@@ -169,16 +180,22 @@ public class Main {
                 }
                 break;
             case 7:
+                operationOnBarn.addBarn(scanner);
                 break;
             case 8:
+                operationOnBarn.deleteBarn(barnsList, scanner);
                 break;
             case 9:
+                operationOnBarn.addAnimal(barnsList, scanner);
                 break;
             case 10:
+                operationOnBarn.removeAnimal(barnsList, scanner);
                 break;
             case 0:
+                condition++;
                 break;
         }
+        System.out.println("----------------------------------------------");
 
     }
 
