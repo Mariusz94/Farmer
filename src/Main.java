@@ -156,12 +156,12 @@ public class Main {
                 break;
             case 5:
                 for (Animal animal : listAnimal) {
-                    if (animal.isVaccinated() == true) System.out.println(animal);
+                    if (animal.isVaccinated()) System.out.println(animal);
                 }
                 break;
             case 6:
                 for (Animal animal : listAnimal) {
-                    if (animal.isVaccinated() == false) System.out.println(animal);
+                    if (!animal.isVaccinated()) System.out.println(animal);
                 }
                 break;
             case 7:
